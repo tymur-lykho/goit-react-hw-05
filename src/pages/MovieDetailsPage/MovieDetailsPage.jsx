@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getImagePath, getMovie } from "../../../api/api";
+import { getImagePath, getMovie } from "../../api/api";
 import { useParams, Outlet, NavLink, useLocation } from "react-router-dom";
-import GoBackBtn from "../../GoBackBtn/GoBackBtn";
+import GoBackBtn from "../../components/GoBackBtn/GoBackBtn";
 import css from "./MovieDetailsPage.module.css";
 import clsx from "clsx";
 

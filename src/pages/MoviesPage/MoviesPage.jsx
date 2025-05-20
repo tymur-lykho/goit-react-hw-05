@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import SearchForm from "../../SearchForm/SearchForm";
-import MovieList from "../../MovieList/MovieList";
-import { getMoviesByQuery } from "../../../api/api";
+import SearchForm from "../../components/SearchForm/SearchForm";
+import MovieList from "../../components/MovieList/MovieList";
+import { getMoviesByQuery } from "../../api/api";
 import css from "./MoviesPage.module.css";
 
 export default function MoviesPage() {
