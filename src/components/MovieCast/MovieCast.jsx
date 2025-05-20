@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieCast } from "../../api/api";
 import CastItem from "../CastItem/CastItem";
+import css from "./MovieCast.module.css";
 
 export default function MovieCast() {
   const [casts, setCasts] = useState([]);
@@ -12,10 +13,10 @@ export default function MovieCast() {
     });
   }, []);
   return (
-    <ul>
+    <ul className={css.castList}>
       {casts.map((item) => {
         return (
-          <li key={item.id}>
+          <li className={css.item} key={item.id}>
             <CastItem data={item} />
           </li>
         );

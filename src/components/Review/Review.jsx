@@ -1,7 +1,8 @@
 export default function Review({ data }) {
   return (
     <>
-      <h3>{data.content}</h3>
+      <h4>{data.author}</h4>
+      <p>{data.content}</p>
     </>
   );
 }

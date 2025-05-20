@@ -1,8 +1,8 @@
 import { BASE_URL, options } from "../config";
 import axios from "axios";
 
-export function getImagePath(imgName, size = 500) {
-  return `${BASE_URL}/t/p/w${size}/${imgName}`;
+export function getImagePath(imgName, size = 200) {
+  return `https://image.tmdb.org/t/p/w${size}${imgName}`;
 }
 
 export async function getTrendingMovies(
@@ -25,5 +25,10 @@ export async function getMovieCast(id) {
 
 export async function getMovieReviews(id) {
   const url = `${BASE_URL}/3/movie/${id}/reviews`;
+  return await axios.get(url, options);
+}
+
+export async function getMoviesByQuery(query) {
+  const url = `${BASE_URL}/3/search/movie?query=${query}`;
   return await axios.get(url, options);
 }

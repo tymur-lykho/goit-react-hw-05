@@ -1,7 +1,6 @@
 import MovieItem from "../MovieItem/MovieItem";
 
 export default function MovieList({ data }) {
-  console.log(data);
   return (
     <ul>
       {data.map((item) => {

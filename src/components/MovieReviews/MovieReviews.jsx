@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getMovieReviews } from "../../api/api";
 import Review from "../Review/Review";
+import css from "./MovieReviews.module.css";
 
 export default function MovieReviews() {
   const [reviews, setReviews] = useState([]);
@@ -12,13 +13,17 @@ export default function MovieReviews() {
 
   return (
     <ul>
-      {reviews.map((review) => {
-        return (
-          <li key={review.id}>
-            <Review data={review} />
-          </li>
-        );
-      })}
+      {reviews.length === 0 ? (
+        <p className={css.message}>I don't have any reviews yet.</p>
+      ) : (
+        reviews.map((review) => {
+          return (
+            <li key={review.id}>
+              <Review data={review} />
+            </li>
+          );
+        })
+      )}
     </ul>
   );
 }
