@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getImagePath, getMovie } from "../../api/api";
 import { useParams, Outlet, NavLink, useLocation } from "react-router-dom";
 import GoBackBtn from "../../components/GoBackBtn/GoBackBtn";
@@ -12,8 +12,7 @@ const buildLinkClass = ({ isActive }) => {
 export default function MovieDetailsPage() {
   const [movieData, setMovieData] = useState({});
   const location = useLocation();
-  const backLinkHref = location.state ?? "/";
-
+  const backLinkHref = useRef(location.state ?? "/");
   const { movieId } = useParams();
 
   useEffect(() => {
@@ -24,7 +23,7 @@ export default function MovieDetailsPage() {
 
   return (
     <>
-      <GoBackBtn to={backLinkHref} />
+      <GoBackBtn to={backLinkHref.current} />
       <div className={css.head}>
         <img
           src={getImagePath(movieData.poster_path, 500)}

@@ -10,10 +10,7 @@ export default function MoviesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const searchMovie = (query) => {
-    getMoviesByQuery(query).then(({ data }) => {
-      setSearchParams(`?query=${query}`);
-      setMovies(data.results);
-    });
+    setSearchParams(`?query=${query}`);
   };
 
   useEffect(() => {
@@ -23,7 +20,7 @@ export default function MoviesPage() {
         setMovies(data.results);
       });
     }
-  }, []);
+  }, [searchParams]);
 
   return (
     <>
